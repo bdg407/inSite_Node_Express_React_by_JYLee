@@ -1,9 +1,27 @@
-//const createError = require('http-errors');
+const createError = require('http-errors');
 const express = require("express");
 const os = require("os");
 //const cookieParser = require('cookie-parser');
 //const logger = require('morgan');
 const app = express();
+const dbConn = require("./models/sqlApp").db_info();
+
+dbConn.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+  console.log('connected as id ' + dbConn.threadId);
+
+});
+
+dbConn.end(function(err) {
+  if (err) {
+    console.error('error connecting end : ' + err.stack);
+    return;
+  }
+  console.log('connected end');
+});
 
 app.use(express.static("www"));
 //app.use(express.static(path.join(__dirname, 'public')));
@@ -18,12 +36,12 @@ app.get("/api/getUsername", (req, res) =>
 app.listen(8080, () => console.log("port = 8080"));
 
 // catch 404 and forward to error handler
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
     next(createError(404));
-});*/
+});
 
 // error handler
-/*app.use(function(err, req, res, next) {
+app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -31,4 +49,4 @@ app.listen(8080, () => console.log("port = 8080"));
     // render the error page
     res.status(err.status || 500);
     res.render('error');
-});*/
+});

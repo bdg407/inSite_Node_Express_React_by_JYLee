@@ -39,6 +39,7 @@ node_modules/
 www/
 jspm_packages/
 
+.idea/
 # TypeScript v1 declaration files
 typings/
 

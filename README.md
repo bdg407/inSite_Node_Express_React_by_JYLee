@@ -5,9 +5,9 @@ Creating....
 
 I will write as soon as possible!!!
 
-node
-express
-react
-webpack
-Airbnb JavaScript
+node /
+express /
+react /
+webpack /
+Airbnb JavaScript /
 ...

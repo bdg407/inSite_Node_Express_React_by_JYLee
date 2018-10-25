@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'www';
+const outputDirectory = 'dist';
 
 module.exports = {
   entry: './src/reactFrontEnd/index.js',

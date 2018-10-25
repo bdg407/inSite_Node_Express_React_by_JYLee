@@ -23,7 +23,7 @@ dbConn.end(function(err) {
   console.log('connected end');
 });
 
-app.use(express.static("www"));
+app.use(express.static("dist"));
 //app.use(express.static(path.join(__dirname, 'public')));
 //app.use(logger('dev'));
 app.use(express.json());
